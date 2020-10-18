@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mosquée Bab Boujloud Tour</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="scene">
+    <div id="startButton" style="color:white;height:100%;cursor:pointer;">
+        <center>
+            <h1 style="margin:5px;margin-top:20px;">Mosquée Bab Boujloud Tour</h1>
+            <p style="margin:10px;margin-bottom:20px;">Mettez votre Oculus Quest et cliquez n'importe où pour
+                commencer.</p>
+            <img src="images/oculus.gif" style="max-width: 50%;"/>
+        </center>
+    </div>
+</div>
+
+<script src="js/external/jquery-2.1.1.min.js"></script>
+<script src="js/external/jstorage.js"></script>
+<script src="js/external/three.min.js"></script>
+<script src="js/external/NoSleep.min.js"></script>
+<script src="js/external/helvetiker_regular.typeface.js"></script>
+<script src="js/external/Spherical.js"></script>
+<script src="js/StereoEffect.js"></script>
+<script src="js/DeviceOrientationControls.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="js/external/has.js"></script>
+<script src="js/Cardboard.js"></script>
+<script src="js/Stats.js"></script>
+<script>
+    var root = this;
+    var SCALE = 3;
+</script>
+<script src="js/Cursor.js"></script>
+<script src="js/room1.js"></script>
+<script src="js/room2.js"></script>
+<script src="js/room3.js"></script>
+<script src="js/room4.js"></script>
+<script src="js/room5.js"></script>
+<script src="js/room6.js"></script>
+<script src="js/room7.js"></script>
+<script src="js/room8.js"></script>
+<script src="js/room9.js"></script>
+<script src="js/room10.js"></script>
+<script src="js/room11.js"></script>
+<script src="js/room12.js"></script>
+<script src="js/room13.js"></script>
+<script src="js/room14.js"></script>
+<script src="js/room15.js"></script>
+<script src="js/room16.js"></script>
+<script src="js/room17.js"></script>
+<script src="js/room18.js"></script>
+<script src="js/room19.js"></script>
+<script src="js/room20.js"></script>
+<script src="js/room21.js"></script>
+<script src="js/room22.js"></script>
+<script src="js/room23.js"></script>
+<script src="js/room24.js"></script>
+<script src="js/room25.js"></script>
+<script src="js/room26.js"></script>
+<script src="js/room27.js"></script>
+
+
+
+
+<script src="js/MainController.js"></script>
+<script src="js/PhotoSphere.js"></script>
+<script src="js/Hotspot.js"></script>
+<script src="js/DetailImage.js"></script>
+<script src="js/Textbox.js"></script>
+<script src="js/NavigationArrow.js"></script>
+<script src="js/NavigationInformation.js"></script>
+<script src="js/TextLights.js"></script>
+<script src="js/external/gamepad-events.js"></script>
+<script src="js/UtopiaController.js"></script>
+<script>
+
+    $(function () {
+        // Initiate Insomnia PhoneGap Plugin
+        try {
+            cordova.exec(function () {
+            }, function () {
+            }, "Insomnia", "keepAwake", []);
+        } catch (e) {
+        }
+    });
+
+    // initialize the screen
+    var cardboard, mainController, cursor, utopiaCtrl;
+    utopiaCtrl = new THREE.UtopiaController();
+    function setup() {
+
+        cardboard = new Cardboard();
+
+        mainController = new MainController();
+
+        cardboard.scene.add(mainController);
+
+        cursor = new Cursor();
+        cardboard.camera.add(cursor);
+        cursor.position.z = -3 * SCALE;
+        cursor.lookAt(cardboard.camera.position);
+        cardboard.effect.separation = 0.1;
+
+        if (!has.mobile) {
+            setTimeout(function () {
+                cardboard.orbitControls.target.set(0, 0.3, 1);
+            }, 0);
+        }
+
+        cardboard.update = function () {
+            Cardboard.prototype.update.call(this);
+            mainController.update();
+
+        };
+
+        document.getElementById('scene').appendChild(cardboard.renderer.domElement);
+
+        // Start
+        root.MainController = MainController;
+        root.Cursor = Cursor;
+
+
+    }
+
+    $("#startButton").on("click", function () {
+        var noSleep = new NoSleep();
+        noSleep.enable();
+        $(this).remove();
+        setup();
+        utopiaCtrl.connect();
+    });
+    //debug();
+    window.addEventListener('click', (function () {
+        var camEul = cardboard.camera.rotation.clone();
+        camEul.reorder('YXZ');
+        var cameraAngle = camEul.y;
+        if (cameraAngle < 0) cameraAngle = 2 * Math.PI + cameraAngle;
+        cameraAngle -= THREE.Math.degToRad(266.87);
+        if (cameraAngle < 0) cameraAngle += 2 * Math.PI;
+        console.log(THREE.Math.radToDeg(cameraAngle));
+
+    }).bind(this));
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="ma.fsdm.MyDrissTour" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>MyDrissTour</name>
+    <description>
+        MyDrissTour Tour with Three JS
+    </description>
+    <author email="maachilyaas@gmail.com" href="http://phonegap.com">
+        MAACH Ilyas
+    </author>
+    <icon src="icon.png" />
+    <preference name="fullscreen" value="true" />
+    <preference name="orientation" value="landscape" />
+    <preference name="detect-data-types" value="false" />
+    <preference name="exit-on-suspend" value="true" />
+    <gap:plugin name="nl.x-services.plugins.insomnia" version="4.0.1" />
+    <gap:platform name="android" />
+    <content src="index.html" />
+    <access origin="*" />
+    <engine name="android" spec="^7.0.0" />
+</widget>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_bfmGIF-4Eeez-csUaxXmqg" name="model">
+  <packagedElement xmi:type="uml:Class" xmi:id="_bjaPIF-4Eeez-csUaxXmqg" name="Cardboard">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_bja2MF-4Eeez-csUaxXmqg">
+      <body> Represents a Cardboard.</body>
+    </ownedComment>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_bja2MV-4Eeez-csUaxXmqg" name="Cardboard"/>
+  </packagedElement>
+</uml:Model>

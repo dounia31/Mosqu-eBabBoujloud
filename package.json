@@ -1,0 +1,22 @@
+{
+  "name": "babboujloud",
+  "version": "1.0.0",
+  "description": "mosquée bab boujloud",
+  "main": "www/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dounia31/Mosqu-e-Bab-Boujloud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dounia31/Mosqu-e-Bab-Boujloud/issues"
+  },
+  "homepage": "https://github.com/dounia31/Mosqu-e-Bab-Boujloud#readme",
+  "dependencies": {
+    "three": "^0.121.1"
+  }
+}

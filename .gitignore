@@ -1,0 +1,6 @@
+hooks/
+platforms/
+.vscode
+node_modules/
+images/
+\.idea/
